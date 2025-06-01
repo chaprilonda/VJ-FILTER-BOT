@@ -96,7 +96,7 @@ async def is_subscribed(bot, query):
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
         query = (query.strip()).lower()
-        title = qurey
+        title = query
         year = re.findall(r'[1-2]\d{3}$', query, re.IGNORECASE)
         if year:
             year = list_to_str(year[:1])
@@ -663,7 +663,7 @@ async def get_cap(settings, remaining_seconds, files, query, total_results, sear
             if imdb:
                 TEMPLATE = script.IMDB_TEMPLATE_TXT
                 cap = TEMPLATE.format(
-                    qurey=search,
+                    query=search,
                     title=imdb['title'],
                     votes=imdb['votes'],
                     aka=imdb["aka"],
