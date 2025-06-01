@@ -96,7 +96,7 @@ async def is_subscribed(bot, query):
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
         query = (query.strip()).lower()
-        title = query
+        title = qurey
         year = re.findall(r'[1-2]\d{3}$', query, re.IGNORECASE)
         if year:
             year = list_to_str(year[:1])
