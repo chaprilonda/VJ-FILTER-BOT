@@ -249,7 +249,7 @@ Nᴀᴍᴇ - {}"""
 <b>⚙️ sɪᴢᴇ : {file_size}</b>""" 
 
     IMDB_TEMPLATE_TXT = """
-<b>Query: {qurey}
+<b>Query: {query}
 
 IMDb Data:
 
