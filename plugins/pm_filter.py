@@ -53,6 +53,7 @@ async def give_filter(client, message):
             settings = await get_settings(message.chat.id)
             try:
                 if settings['auto_ffilter']:
+                    if content.startswith("/") or content.startswith("#"): return
                     ai_search = True
                     reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
                     await auto_filter(client, message.text, message, reply_msg, ai_search)
@@ -61,6 +62,7 @@ async def give_filter(client, message):
                 await save_group_settings(grpid, 'auto_ffilter', True)
                 settings = await get_settings(message.chat.id)
                 if settings['auto_ffilter']:
+                    if content.startswith("/") or content.startswith("#"): return
                     ai_search = True
                     reply_msg = await message.reply_text(f"<b><i>Searching For {message.text} 🔍</i></b>")
                     await auto_filter(client, message.text, message, reply_msg, ai_search)
