@@ -2735,7 +2735,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
         except Exception as e:
             logger.exception(e) 
             fek = await reply_msg.edit_text(text=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await reply_msg.delete()
+            #await reply_msg.delete()
             try:
                 if settings['auto_delete']:
                     await asyncio.sleep(300)
@@ -2748,7 +2748,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
                 await message.delete()
     else:
         fuk = await reply_msg.edit_text(text=cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
-        await reply_msg.delete()
+        #await reply_msg.delete()
         
         try:
             if settings['auto_delete']:
