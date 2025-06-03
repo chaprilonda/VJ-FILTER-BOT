@@ -2561,7 +2561,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
         message = msg
         if message.text.startswith("/"): return await reply_msg.delete()  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
-            return
+            return await reply_msg.delete()
         if len(message.text) < 100:
             search = name
             search = search.lower()
@@ -2586,7 +2586,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
                 else:
                     return await reply_msg.edit_text(f"**⚠️ No File Found For Your Query - {name}**\n**Make Sure Spelling Is Correct.**")
         else:
-            return
+            return await reply_msg.delete()
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
@@ -2787,7 +2787,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             await k.delete()
         except:
             return await reply_msg.delete()
-        return
+        return await reply_msg.delete()
     movielist = []
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")
@@ -2802,7 +2802,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             await k.delete()
         except:
             return await reply_msg.delete()
-        return
+        return await reply_msg.delete()
     movielist += [movie.get('title') for movie in movies]
     movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
     SPELL_CHECK[mv_id] = movielist
